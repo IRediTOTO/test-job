@@ -14,12 +14,23 @@ export default function Home() {
           <NewTask />
         </div>
         <div className="tw-w-3/5 tw-relative">
-          <div className="tw-grid tw-w-full tw-grid-flow-col tw-col-span-1 tw-relative">
-            <div className="tw-w-full ">
-              <EditTask />
+          <div className="tw-flex tw-flex-col tw-justify-between tw-flex-wrap tw-relative  tw-h-full">
+            <div>
+              <div className="tw-w-full ">
+                <EditTask />
+              </div>
+              <div className="tw-w-full ">
+                <ListTask />
+              </div>
             </div>
-            <div className="tw-w-full">
-              <ListTask />
+            <div className="tw-sticky tw-flex tw-bg-gray-300 tw-w-full tw-flex-row tw-justify-between tw-items-center tw-py-4 tw-px-4">
+              <div className="tw-flex-grow ">
+                Bulk Action
+              </div>
+              <div className="tw-flex tw-flex-row tw-space-x-2">
+                <button className="tw-rounded-lg tw-text-white tw-px-4 tw-py-2 tw-bg-blue-400" type="button">Done</button>
+                <button className="tw-rounded-lg tw-text-white tw-px-4 tw-py-2 tw-bg-red-400" type="button">Remove</button>
+              </div>
             </div>
           </div>
         </div>

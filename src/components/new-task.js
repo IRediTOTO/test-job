@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch } from "react-redux";
 import { randomId } from "src/functions/randomId";
+import { addTask } from "src/redux/actions/todo-action";
 
 const NewTask = (props) => {
     const [dueDate, setDueDate] = useState(new Date());
@@ -10,20 +11,10 @@ const NewTask = (props) => {
     const [taskDescription, setTaskDescription] = useState("")
     const [piority, setPiority] = useState("low")
 
+
     const dispatch = useDispatch()
 
-    function addTask() {
-        dispatch({
-            type: "ADD_TASK",
-            task: {
-                taskName,
-                taskDescription,
-                dueDate,
-                piority,
-                taskId: randomId()
-            }
-        })
-    }
+
 
     useEffect(() => { console.log("taskName,dueDate,taskDescription,piority", taskName, dueDate, taskDescription, piority) }, [taskName, dueDate, taskDescription, piority])
 
@@ -67,7 +58,17 @@ const NewTask = (props) => {
                     </div>
 
                     <div className="tw-col-span-1">
-                        <button type="button" onClick={addTask}
+                        <button type="button" onClick={() => {
+                            dispatch(addTask(
+                                {
+                                    name: taskName,
+                                    description: taskDescription,
+                                    dueDate,
+                                    piority,
+                                    id: randomId()
+                                }
+                            ))
+                        }}
                             className="tw-text-white tw-bg-green-500 tw-py-2 tw-mt-4 tw-w-full tw-text-center tw-rounded-lg">
                             Add
                         </button>
