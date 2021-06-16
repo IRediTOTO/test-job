@@ -1,9 +1,9 @@
 import { Provider } from 'react-redux'
-import { useTaskStore } from 'src/stores/task-store'
 import 'tailwindcss/tailwind.css'
-function MyApp({ Component, pageProps }) {
-  const store=useTaskStore(pageProps.initialReduxState)
+import store from "src/redux/store";
 
+function MyApp({ Component, pageProps }) {
+  store.dispatch()
 
   return (
     <Provider store={store}>
